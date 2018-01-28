@@ -15,10 +15,10 @@ public class EnemyManager : MonoBehaviour
         spawnPoints = GetComponentsInChildren<EnemySpawnPoint>();
     }
 
-    public void SpawnEnemy(Enemy enemy)
+    public Enemy SpawnEnemy(Enemy enemy)
     {
         int randomIndex = Random.Range(0, spawnPoints.Length);
-        spawnPoints[randomIndex].Spawn(enemy);
+        return spawnPoints[randomIndex].Spawn(enemy);
     }
 
     public Protectee GetNearestProtectee(Vector3 position)

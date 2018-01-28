@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     EnemyManager enemyManager;
     UIManager uiManager;
 
+    public Enemy bossPrefab;
     private void Awake()
     {
         protecteeManager = GetComponentInChildren<ProtecteeManager>();
@@ -87,15 +88,29 @@ public class GameManager : MonoBehaviour
     {
         string message = finished + "/" + requiredProtectees;
         uiManager.ProtecteeTextUpdate(message);
-        uiManager.ProtecteeCarUpdate(finished / requiredProtectees);
-        if (finished >= requiredProtectees)
+        if (finished == requiredProtectees)
         {
-            GameOver();
+            Boss();
+        }
+        else
+        {
+            uiManager.ProtecteeCarUpdate(finished / requiredProtectees);
         }
     }
 
     void GameOver()
     {
         SceneManager.LoadScene(0);
+    }
+
+    void Boss()
+    {
+        waveManager.Stop();
+        Enemy boss = enemyManager.SpawnEnemy(bossPrefab);
+        if (boss != null)
+        {
+            boss.OnDeath -= GameOver;
+            boss.OnDeath += GameOver;
+        }
     }
 }

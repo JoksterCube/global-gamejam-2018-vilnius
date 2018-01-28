@@ -1317,6 +1317,12 @@ Prefab:
       propertyPath: timeTillFirstSpawn
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114624549546184910, guid: 2fafb5b0b14d27046b63910d6dcbc339,
+        type: 2}
+      propertyPath: bossPrefab
+      value: 
+      objectReference: {fileID: 114155668845847878, guid: 443a658620220324fa2d210ebc864e2c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fafb5b0b14d27046b63910d6dcbc339, type: 2}
   m_IsPrefabParent: 0

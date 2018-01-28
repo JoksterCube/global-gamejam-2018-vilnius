@@ -22,7 +22,7 @@ public class BuidController : MonoBehaviour
         Vector3 newPosition = transform.position;
         newPosition.y = 0;
         newPosition += transform.forward + offset;
-        Hammer hammer = Instantiate(hammerPrefab, newPosition, Quaternion.identity) as Hammer;
+        Hammer hammer = Instantiate(hammerPrefab, newPosition, transform.rotation) as Hammer;
         hammer.life = lifeTime;
         hammer.Dying();
     }

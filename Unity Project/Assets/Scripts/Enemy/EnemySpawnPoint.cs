@@ -12,14 +12,16 @@ public class EnemySpawnPoint : MonoBehaviour
         enemyManager = GetComponentInParent<EnemyManager>();
     }
 
-    public void Spawn(Enemy enemyPrefab)
+    public Enemy Spawn(Enemy enemyPrefab)
     {
-        if (enemyManager == null || enemyPrefab == null) { return; }
+        if (enemyManager == null || enemyPrefab == null) { return null; }
         // TODO: add everything to enemies
         Enemy enemy = Instantiate(enemyPrefab, GetRandomPositionInRadius(), Quaternion.identity, enemyManager.enemyParent) as Enemy;
         enemy.enemyManager = enemyManager;
 
         enemy.GetComponent<LifeBarController>().lifeBarParent = enemyManager.lifeBarParrent;
+
+        return enemy;
     }
 
     public Vector3 GetRandomPositionInRadius()

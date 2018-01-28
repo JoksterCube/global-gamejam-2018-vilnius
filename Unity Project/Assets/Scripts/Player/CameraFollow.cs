@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour
 
     private Vector3 velocity;
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         if (target == null) { return; }
 

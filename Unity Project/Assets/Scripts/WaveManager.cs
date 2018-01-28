@@ -12,6 +12,7 @@ public class WaveManager : MonoBehaviour
     int currentWave = 0;
 
     bool started = false;
+    bool stop = false;
 
     public int ProtecteesLeft
     {
@@ -44,6 +45,7 @@ public class WaveManager : MonoBehaviour
     {
         for (int i = 0; i < waves.Length; i++)
         {
+            if (stop) { break; }
             currentWave = i;
             protecteeManager.GiveInstructions(waves[i].protecteeAmount, waves[i].protecteeSpawnTime);
             enemyManager.GiveInstructions(GetEnemiesFromGroups(waves[i].enemyGroups));
@@ -62,6 +64,11 @@ public class WaveManager : MonoBehaviour
             }
         }
         return enemies.ToArray();
+    }
+
+    public void Stop()
+    {
+        stop = true;
     }
 }
 

@@ -1,10 +1,16 @@
 /[Ll]ibrary/
-/[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
 /.vs/
+
+/"Unity Project"/[Ll]ibrary/
+/"Unity Project"/[Tt]emp/
+/"Unity Project"/[Oo]bj/
+/"Unity Project"/[Bb]uild/
+/"Unity Project"/[Bb]uilds/
+/"Unity Project"/.vs/
 
 *.csproj
 *.sln
